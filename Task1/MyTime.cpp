@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -12,10 +14,21 @@
 а также доступ к закрытым членам класса.
 Кроме этого определить функцию-член TodayTime(),
 которая возвращает системное время объекту класса Time.
+
+2.7.	Разработать класс Time для работы с временными параметрами.
+Класс должен содержать основной конструктор, конструктор по умолчанию и конструктор копирования.
+Определить в этом классе функции-члены, которые обеспечивают ввод/вывод элементов класса,
+а также доступ к закрытым членам класса.
+Кроме этого определить функцию-член TodayTime(),
+которая возвращает системное время объекту класса Time.
 */
 
 MyTime::MyTime(int tmp) {
 	_timestamp = tmp;
+}
+
+MyTime::MyTime(const MyTime & src) {
+	_timestamp = src._timestamp;
 }
 
 std::string MyTime::toString() {
@@ -41,6 +54,11 @@ MyTime MyTime::operator+(const MyTime& b) {
 
 MyTime MyTime::operator-(const MyTime& b) {
 	return MyTime(this->_timestamp - b._timestamp);
+}
+
+std::ostream & operator<<(std::ostream& out, const MyTime& b) {
+	out << MyTime(b._timestamp).toString();
+	return out;
 }
 
 MyTime& MyTime::setHours(int hour) {
@@ -77,6 +95,7 @@ int MyTime::getTimestamp() {
 
 MyTime MyTime::todayTime() {
 	time_t now = time(0);
+	tm *ltm = localtime(&now);
 
-	return MyTime(now);
+	return MyTime(ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec);
 }

@@ -3,11 +3,12 @@
 
 class MyTime {
 
+private:
 	int _timestamp;
 
 public:
-	MyTime() {};
-	MyTime(int timestamp);
+	MyTime(int timestamp = 0);
+	MyTime(const MyTime &src);
 
 	MyTime& setHours(int hour);
 	MyTime& setMinutes(int minute);
@@ -25,6 +26,6 @@ public:
 
 	MyTime operator+(const MyTime& b);
 	MyTime operator-(const MyTime& b);
-
+	friend std::ostream& operator<<(std::ostream& out, const MyTime& b);
 };
 

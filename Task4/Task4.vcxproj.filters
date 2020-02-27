@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyString.cpp">
+    <ClCompile Include="StackString.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyString.h">
+    <ClInclude Include="StackString.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
