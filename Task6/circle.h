@@ -1,4 +1,4 @@
-// Класс, описывающий окружность:
+﻿// Класс, описывающий окружность:
 #include "point.h"
 #define _USE_MATH_DEFINES 
 #include <math.h>
